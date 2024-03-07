@@ -9,7 +9,10 @@ import (
 
 func main() {
 
-	store := recipes.NewMemStore()
+	store, err := recipes.NewGormStore()
+	if err != nil{
+		log.Println("Internal database error: ", err)
+	}
 	recipesHandler := views.NewRecipeHandler(store)
 
 	mux := http.NewServeMux()

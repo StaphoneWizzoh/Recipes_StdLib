@@ -11,3 +11,8 @@ func NotFoundErrorHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
 	w.Write([]byte("404 Not Found"))
 }
+
+func ForbiddenErrorHandler(w http.ResponseWriter, r *http.Request){
+	w.WriteHeader(http.StatusForbidden)
+	w.Write([]byte("403 Forbidden"))
+}

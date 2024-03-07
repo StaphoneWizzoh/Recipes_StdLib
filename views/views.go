@@ -18,15 +18,16 @@ var (
 )
 
 type RecipesHandler struct {
-	Store recipes.RecipeStore
+	Store recipes.GormStore
 }
 
 type HomeHandler struct{}
 
-func NewRecipeHandler(s recipes.RecipeStore) *RecipesHandler {
+func NewRecipeHandler(s *recipes.GormStore) *RecipesHandler {
 	return &RecipesHandler{
-		Store: s,
+		Store: *s,
 	}
+	
 }
 
 func (h *HomeHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
