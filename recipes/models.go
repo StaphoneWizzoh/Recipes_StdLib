@@ -1,6 +1,7 @@
 package recipes
 
 import (
+	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
@@ -8,14 +9,14 @@ import (
 
 type Recipe struct {
 	gorm.Model
-	ID			uuid.uuid	 `json:"id"`
+	ID			uuid.UUID	 `json:"id"`
 	Name        string       `json:"name"`
 	Ingredients []Ingredient `json:"ingredients"`
 }
 
 type Ingredient struct {
 	gorm.Model
-	ID			uuid.uuid	 `json:"id"`
+	ID			uuid.UUID	 `json:"id"`
 	Name string `json:"name"`
 }
 
